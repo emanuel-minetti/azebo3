@@ -1,3 +1,5 @@
 <?php
-$url = $_REQUEST['url'];
-echo "Hallo von der API! Die URL war $url";
+require __DIR__ . '/../app/vendor/autoload.php';
+use controller\IndexController;
+$controller = new IndexController();
+$controller->indexAction();
