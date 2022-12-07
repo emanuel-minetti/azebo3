@@ -14,5 +14,3 @@ coverage
 # Configs
 /server/config/config.php
 
-# Composer
-/composer.phar
