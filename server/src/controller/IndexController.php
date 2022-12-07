@@ -3,8 +3,8 @@ namespace controller;
 use PDO;
 
 class IndexController {
-    private $user = 'azebo3';
-    private $pw = 'cGd*b3x8kpkNLkqo';
+    private string $user = 'azebo3';
+    private string $pw = 'cGd*b3x8kpkNLkqo';
     public function indexAction(): void {
         $url = $_REQUEST['url'];
         echo "Hallo von der API! Die URL war '$url'";
