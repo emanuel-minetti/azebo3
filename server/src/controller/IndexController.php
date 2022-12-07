@@ -1,15 +1,21 @@
 <?php
+
 namespace controller;
 use PDO;
 
 class IndexController {
-    private string $user = 'azebo3';
-    private string $pw = 'cGd*b3x8kpkNLkqo';
     public function indexAction(): void {
         $url = $_REQUEST['url'];
-        echo "Hallo von der API! Die URL war '$url'";
+        echo "Hallo von der API!";
+        echo "<br/>Die URL war '$url'";
 
-        $dbh = new PDO('mysql:host=localhost;dbname=azebo3', $this->user, $this->pw);
+        $config = require __DIR__ . '/../../config/config.php';
+        $dbConfig = $config['db'];
+        $host = $dbConfig['host'];
+        $dbName = $dbConfig['database'];
+        $user = $dbConfig['user'];
+        $pw = $dbConfig['pw'];
+        $dbh = new PDO("mysql:host=$host;dbname=$dbName", $user, $pw);
         $stm = $dbh->query('SELECT name FROM user WHERE id = 1');
         $res = $stm->fetch(PDO::FETCH_ASSOC);
         $name = $res['name'];
