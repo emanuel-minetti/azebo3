@@ -1,7 +1,3 @@
-<script setup lang="ts">
-import { RouterLink, RouterView } from "vue-router";
-</script>
-
 <template>
   <header>
     <div class="navbar">
@@ -19,9 +15,21 @@ import { RouterLink, RouterView } from "vue-router";
     </div>
   </header>
 
-  <div class="alert alert-primary">You are doing it!</div>
-
+  <div class="alert alert-primary">Your name is {{ name }}</div>
   <RouterView />
 </template>
+
+<script setup lang="ts">
+import { RouterLink, RouterView } from "vue-router";
+import { onMounted, ref } from "vue";
+
+const name = ref("");
+
+onMounted(async () => {
+  await fetch("http://localhost/api/")
+    .then((res) => res.text())
+    .then((text) => (name.value = text));
+});
+</script>
 
 <style scoped></style>

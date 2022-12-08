@@ -20,5 +20,6 @@ class IndexController {
         $res = $stm->fetch(PDO::FETCH_ASSOC);
         $name = $res['name'];
         echo "<br/>Dein Name ist: '$name'";
+        die();
     }
 }
