@@ -27,8 +27,8 @@ const name = ref("");
 
 onMounted(async () => {
   await fetch("http://localhost/api/")
-    .then((res) => res.text())
-    .then((text) => (name.value = text));
+    .then((res) => res.json())
+    .then((json) => (name.value = json.name));
 });
 </script>
 

@@ -6,9 +6,6 @@ use PDO;
 class IndexController {
     public function indexAction(): void {
         $url = $_REQUEST['url'];
-        echo "Hallo von der API!";
-        echo "<br/>Die URL war '$url'";
-
         $config = require __DIR__ . '/../../config/config.php';
         $dbConfig = $config['db'];
         $host = $dbConfig['host'];
@@ -19,7 +16,12 @@ class IndexController {
         $stm = $dbh->query('SELECT name FROM user WHERE id = 1');
         $res = $stm->fetch(PDO::FETCH_ASSOC);
         $name = $res['name'];
-        echo "<br/>Dein Name ist: '$name'";
-        die();
+        $data = [
+            'text' => 'Hallo von der API!',
+            'url' => $url,
+            'name' => $name,
+        ];
+        header('Content-type: application/json');
+        echo json_encode($data);
     }
 }
