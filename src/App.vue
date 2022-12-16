@@ -14,8 +14,10 @@
       </nav>
     </div>
   </header>
-  <div class="alert alert-primary">Your name is {{ name }}</div>
-  <RouterView />
+  <main class="container">
+    <div class="alert alert-primary">Your name is {{ name }}</div>
+    <RouterView />
+  </main>
 </template>
 
 <script setup lang="ts">
