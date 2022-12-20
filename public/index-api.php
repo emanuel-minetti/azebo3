@@ -1,5 +1,7 @@
 <?php
 require __DIR__ . '/../app/vendor/autoload.php';
-use controller\IndexController;
-$controller = new IndexController();
-$controller->indexAction();
+
+use controller\FrontController;
+
+$controller = new FrontController();
+$controller->route();
